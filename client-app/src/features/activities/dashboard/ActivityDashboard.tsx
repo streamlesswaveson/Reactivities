@@ -18,9 +18,9 @@ const ActivityDashboard: React.FC<IProps> = ({
                                                  activities,
                                                  selectActivity,
                                                  selectedActivity,
-    editMode,
-    setEditMode,
-    setSelectedActivity
+                                                 editMode,
+                                                 setEditMode,
+                                                 setSelectedActivity
                                              }) => {
     return (
         <Grid>
@@ -28,15 +28,15 @@ const ActivityDashboard: React.FC<IProps> = ({
                 <ActivityList activities={activities} selectedActivity={selectActivity}/>
             </Grid.Column>
             <Grid.Column width={6}>
-                
+
                 {selectedActivity && !editMode &&
-                <ActivityDetail 
-                    activity={selectedActivity} 
-                    setEditMode={setEditMode} 
+                <ActivityDetail
+                    activity={selectedActivity}
+                    setEditMode={setEditMode}
                     setSelectedActivity={setSelectedActivity}/>}
-                    
-                {editMode && 
-                <ActivityForm setEditMode={setEditMode}/>}
+
+                {editMode &&
+                <ActivityForm setEditMode={setEditMode} activity={selectedActivity!}/>}
             </Grid.Column>
         </Grid>
     )
